@@ -73,6 +73,8 @@ function AnswerForUpdDel(props) {
 
                     <div className="question">
                         <p>{props.content}</p>
+
+                        <p style={{ "color": "#FF1684", "fontSize": "12px" }}>{props.edited}</p>                          {/* edited timestamp */}
                     </div>
 
                 </div>
@@ -82,9 +84,7 @@ function AnswerForUpdDel(props) {
                     <button className="update-delete-button" onClick={handleUpdateButton}>Edit</button>
                 </div>
 
-                <div className="question">
-                    <p style={{ "color": "#FF1684", "fontSize": "12px" }}>{props.edited}</p>                          {/* edited timestamp */}
-                </div>
+
 
             </div>
 
