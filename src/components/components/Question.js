@@ -266,7 +266,11 @@ function Question(props) {
 
       setIsAnsweringActive(!isAnsweringActive);
       // alert("Answer submitted!");
-      showToastMessage();
+      // showToastMessage();
+      if(resultAnswer.user.fName && resultAnswer.question.content && resultAnswer.question.user.fName){
+        // alert("Question submitted");
+        showToastMessage();
+    }
 
 
 
