@@ -148,10 +148,17 @@ const Leaderboard = (props) => {
                 <div className="leaderboard-left-area">
                     <div className="left-area-inner">
                         <img src="../ASSETS/leaderboard_left_pic.svg" alt="" className="winner-img" />
-                        <div className="winner-name">#1 {winnerfName} {winnerlName}</div>
+
+                        {/* <div className="winner-name">#1 {winnerfName} {winnerlName}</div>
                         <div className="winner-branch-year">{winnerBranch}, {winnerYear}</div>
                         <div className="winner-numbers"> Total Answered   {winneroOfDoubtsAnswered}</div>
-                        <div className="winner-numbers"> Total Questions   {winnerNoOfDoubtsAsked}</div>
+                        <div className="winner-numbers"> Total Questions   {winnerNoOfDoubtsAsked}</div> */}
+
+
+                        <div className="winner-name">#1 {props.winnerfNameSent} {props.winnerlNameSent}</div>
+                        <div className="winner-branch-year">{props.winnerBranchSent}, {props.winnerYearSent}</div>
+                        <div className="winner-numbers"> Total Answered   {props.winneroOfDoubtsAnsweredSent}</div>
+                        <div className="winner-numbers"> Total Questions   {props.winnerNoOfDoubtsAskedSent}</div>
                     </div>
 
                 </div>
