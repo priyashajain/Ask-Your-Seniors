@@ -333,7 +333,7 @@ function Question(props) {
         <a href="" onClick={handleAnswersButtonClick} style={{ "textDecoration": "none" }}>
           <div className="answer-container">
             <img src="../ASSETS/Message.svg" alt="" />
-            <p>Answers</p>
+            <p>Answer</p>
           </div>
         </a>
 
