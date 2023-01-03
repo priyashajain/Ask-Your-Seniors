@@ -16,7 +16,7 @@ function AnswerForUpdDel(props) {
     const handleUpdatedAnswerClickAndSubmit = async () => {
         const d = new Date();
         // const editedDateTime = "EDIT: " + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "  " + d.getHours + ":" + d.getMinutes() + ":" + d.getSeconds();
-        const editedDateTime = "EDIT: " + d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + "  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        const editedDateTime = "EDIT: " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + "  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         // setEditedTimestampOfAnswer(edited);
 
         console.log(updatedAnswer);
@@ -74,15 +74,19 @@ function AnswerForUpdDel(props) {
                     <div className="question">
                         <p>{props.content}</p>
                     </div>
-                    
+
                 </div>
 
                 <div className="right-part-answer-div">
                     <button className="update-delete-button" onClick={handleDeleteButton}>Delete</button>
                     <button className="update-delete-button" onClick={handleUpdateButton}>Edit</button>
                 </div>
-                <p className="question">{props.edited}</p>                          {/* edited timestamp */}
             </div>
+
+            <div className="question">
+                <p>{props.edited}</p>                          {/* edited timestamp */}
+            </div>
+            
             {/* <p>{props.answerId}</p> */}
         </div>
     );
