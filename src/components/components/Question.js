@@ -251,20 +251,43 @@ function Question(props) {
 
       console.log("User object I created", user);
 
+
+
+      // const question = {
+      //   _id: question_id,
+      //   content: questionContent,
+      //   category: questionCategory,
+      //   user: {
+      //     _id: questionUserId,
+      //     email: questionUserEmail,
+      //     // password: questionUserPassword,
+      //     fName: questionUserfName,
+      //     lName: questionUserlName,
+      //     branch: questionUserBranch,
+      //     year: questionUserYear
+      //   }
+      // }
+
+
+
+
       const question = {
-        _id: question_id,
-        content: questionContent,
-        category: questionCategory,
+        _id: props.questionId,
+        content: props.questionSent.content,
+        category: props.questionSent.category,
         user: {
-          _id: questionUserId,
-          email: questionUserEmail,
+          _id: props.questionSent.user._id,
+          email: props.questionSent.user.email,
           // password: questionUserPassword,
-          fName: questionUserfName,
-          lName: questionUserlName,
-          branch: questionUserBranch,
-          year: questionUserYear
+          fName: props.questionSent.user.fName,
+          lName: props.questionSent.user.lName,
+          branch: props.questionSent.user.branch,
+          year: props.questionSent.user.year
         }
       }
+
+
+
 
       console.log("Question object I created", question);
 

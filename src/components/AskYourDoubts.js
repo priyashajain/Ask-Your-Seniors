@@ -502,6 +502,7 @@ const AskYourDoubts = (props) => {
                 // content={questionItem.content}
                 content={nquestionItem.content}
                 category={nquestionItem.category}
+                questionSent={nquestionItem}
               />
             );
           })}
