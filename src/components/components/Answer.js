@@ -23,6 +23,7 @@ function Answer(props) {
 
             <div className="question">
                 <p>{props.content}</p>
+                <p style={{ "color": "#FF1684", "fontSize": "12px" }}>{props.edited}</p>
             </div>
 
         </div>

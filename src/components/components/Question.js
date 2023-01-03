@@ -480,6 +480,7 @@ function Question(props) {
             // content={questionItem.content}
             content={answerItem.content}
             category="Answer"
+            edited={answerItem.edited}
           />
         );
       })} </div> : null}
