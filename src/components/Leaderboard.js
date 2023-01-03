@@ -99,11 +99,100 @@ const Leaderboard = (props) => {
                 return index === 0;
             }).fName);
 
-        setWinnerlName(winner.lName);
-        setWinnerBranch(winner.branch);
-        setWinnerYear(winner.year);
-        setWinnerNoOfDoubtsAsked(winner.noOfDoubtsAsked);
-        setWinnerNoOfDoubtsAnswered(winner.noOfDoubtsAnswered);
+        setWinnerlName(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).lName);
+
+        setWinnerBranch(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).branch);
+
+        setWinnerYear(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).year);
+
+        setWinnerNoOfDoubtsAsked(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).noOfDoubtsAsked);
+
+        setWinnerNoOfDoubtsAnswered(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).noOfDoubtsAnswered);
+
+
+
+        // setWinnerlName(winner.lName);
+        // setWinnerBranch(winner.branch);
+        // setWinnerYear(winner.year);
+        // setWinnerNoOfDoubtsAsked(winner.noOfDoubtsAsked);
+        // setWinnerNoOfDoubtsAnswered(winner.noOfDoubtsAnswered);
+
+
         //   console.log(winner.fName);
     }
 
