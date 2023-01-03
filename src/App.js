@@ -248,6 +248,15 @@ function App() {
 	const [userBranch, setUserBranch] = useState("");
 	const [userYear, setUserYear] = useState("");
 
+
+	let [users, setUsers] = useState([]);
+	const [winnerfName, setWinnerfName] = useState("");
+	const [winnerlName, setWinnerlName] = useState("");
+	const [winnerBranch, setWinnerBranch] = useState("");
+	const [winnerYear, setWinnerYear] = useState("");
+	const [winnerNoOfDoubtsAsked, setWinnerNoOfDoubtsAsked] = useState("");
+	const [winneroOfDoubtsAnswered, setWinnerNoOfDoubtsAnswered] = useState("");
+
 	const getUser = async () => {
 		try {
 			// const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
@@ -286,7 +295,46 @@ function App() {
 		// console.log(user);
 		// console.log(userName);
 		// console.log(userIsAdmin)
+		getUsers();
 	});
+
+
+
+	const getUsers = async () => {
+
+		let resultUsers = await fetch("https://ask-your-seniors-backend.vercel.app/users");
+		resultUsers = await resultUsers.json();
+		setUsers(resultUsers);
+
+		setUsers(resultUsers.sort(
+			(p1, p2) => {
+				let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+				let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+				if (sum1 > sum2) {
+					return -1;
+				}
+				if (sum1 < sum2) {
+					return 1;
+				}
+
+				return 0;
+			}).filter(lUser => lUser.isAdmin === false));
+
+		setWinner(users.find((obj, index) => {
+			return index === 0;
+		}));
+
+		setWinnerfName(winner.fName);
+		setWinnerlName(winner.lName);
+		setWinnerBranch(winner.branch);
+		setWinnerYear(winner.year);
+		setWinnerNoOfDoubtsAsked(winner.noOfDoubtsAsked);
+		setWinnerNoOfDoubtsAnswered(winner.noOfDoubtsAnswered);
+		//   console.log(winner.fName);
+	}
+
+
 
 	return (
 		<BrowserRouter>
@@ -297,7 +345,7 @@ function App() {
 					<Route
 						exact
 						path="/home"
-						element={<HomeForTesting userId={userId} userGoogleId={userGoogleId} userEmailSent={userEmail} userfNameSent={userfName} userlNameSent={userlName} userBranchSent={userBranch} userYearSent={userYear}/>}
+						element={<HomeForTesting userId={userId} userGoogleId={userGoogleId} userEmailSent={userEmail} userfNameSent={userfName} userlNameSent={userlName} userBranchSent={userBranch} userYearSent={userYear} />}
 					/>
 					{/* </Route> */}
 
@@ -332,11 +380,12 @@ function App() {
 					/> */}
 					<Route
 						path={`/ask-your-doubts`}
-						element={<AskYourDoubts userId={userId} userGoogleId={userGoogleId} userEmailSent={userEmail} userfNameSent={userfName} userlNameSent={userlName} userBranchSent={userBranch} userYearSent={userYear}/>}
+						element={<AskYourDoubts userId={userId} userGoogleId={userGoogleId} userEmailSent={userEmail} userfNameSent={userfName} userlNameSent={userlName} userBranchSent={userBranch} userYearSent={userYear} />}
 					/>
 					<Route
 						path={`/leaderboard`}
-						element={<Leaderboard  userId={userId} userGoogleId={userGoogleId}/>}
+						// element={<Leaderboard  userId={userId} userGoogleId={userGoogleId} />}
+						element={<Leaderboard userId={userId} userGoogleId={userGoogleId} winnerfNameSent={winnerfName} winnerlNameSent={winnerlName} winnerBranchSent={winnerBranch} winnerYearSent={winnerYear} winnerNoOfDoubtsAskedSent={winnerNoOfDoubtsAsked} winneroOfDoubtsAnsweredSent={winneroOfDoubtsAnswered} />}
 					/>
 					{/* </Route> */}
 
