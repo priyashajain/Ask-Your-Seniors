@@ -74,14 +74,14 @@ function AnswerForUpdDel(props) {
                     <div className="question">
                         <p>{props.content}</p>
                     </div>
-                    <p>{props.edited}</p>                          {/* edited timestamp */}
+                    
                 </div>
 
                 <div className="right-part-answer-div">
                     <button className="update-delete-button" onClick={handleDeleteButton}>Delete</button>
                     <button className="update-delete-button" onClick={handleUpdateButton}>Edit</button>
                 </div>
-
+                <p className="question">{props.edited}</p>                          {/* edited timestamp */}
             </div>
             {/* <p>{props.answerId}</p> */}
         </div>
