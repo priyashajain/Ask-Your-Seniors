@@ -249,13 +249,13 @@ function App() {
 	const [userYear, setUserYear] = useState("");
 
 
-	let [users, setUsers] = useState([]);
-	const [winnerfName, setWinnerfName] = useState("");
-	const [winnerlName, setWinnerlName] = useState("");
-	const [winnerBranch, setWinnerBranch] = useState("");
-	const [winnerYear, setWinnerYear] = useState("");
-	const [winnerNoOfDoubtsAsked, setWinnerNoOfDoubtsAsked] = useState("");
-	const [winneroOfDoubtsAnswered, setWinnerNoOfDoubtsAnswered] = useState("");
+	// let [users, setUsers] = useState([]);
+	// const [winnerfName, setWinnerfName] = useState("");
+	// const [winnerlName, setWinnerlName] = useState("");
+	// const [winnerBranch, setWinnerBranch] = useState("");
+	// const [winnerYear, setWinnerYear] = useState("");
+	// const [winnerNoOfDoubtsAsked, setWinnerNoOfDoubtsAsked] = useState("");
+	// const [winneroOfDoubtsAnswered, setWinnerNoOfDoubtsAnswered] = useState("");
 
 	const getUser = async () => {
 		try {
@@ -295,44 +295,44 @@ function App() {
 		// console.log(user);
 		// console.log(userName);
 		// console.log(userIsAdmin)
-		getUsers();
+		// getUsers();
 	});
 
 
 
-	const getUsers = async () => {
+	// const getUsers = async () => {
 
-		let resultUsers = await fetch("https://ask-your-seniors-backend.vercel.app/users");
-		resultUsers = await resultUsers.json();
-		setUsers(resultUsers);
+	// 	let resultUsers = await fetch("https://ask-your-seniors-backend.vercel.app/users");
+	// 	resultUsers = await resultUsers.json();
+	// 	setUsers(resultUsers);
 
-		setUsers(resultUsers.sort(
-			(p1, p2) => {
-				let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
-				let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+	// 	setUsers(resultUsers.sort(
+	// 		(p1, p2) => {
+	// 			let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+	// 			let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
 
-				if (sum1 > sum2) {
-					return -1;
-				}
-				if (sum1 < sum2) {
-					return 1;
-				}
+	// 			if (sum1 > sum2) {
+	// 				return -1;
+	// 			}
+	// 			if (sum1 < sum2) {
+	// 				return 1;
+	// 			}
 
-				return 0;
-			}).filter(lUser => lUser.isAdmin === false));
+	// 			return 0;
+	// 		}).filter(lUser => lUser.isAdmin === false));
 
-		setWinner(users.find((obj, index) => {
-			return index === 0;
-		}));
+	// 	setWinner(users.find((obj, index) => {
+	// 		return index === 0;
+	// 	}));
 
-		setWinnerfName(winner.fName);
-		setWinnerlName(winner.lName);
-		setWinnerBranch(winner.branch);
-		setWinnerYear(winner.year);
-		setWinnerNoOfDoubtsAsked(winner.noOfDoubtsAsked);
-		setWinnerNoOfDoubtsAnswered(winner.noOfDoubtsAnswered);
-		//   console.log(winner.fName);
-	}
+	// 	setWinnerfName(winner.fName);
+	// 	setWinnerlName(winner.lName);
+	// 	setWinnerBranch(winner.branch);
+	// 	setWinnerYear(winner.year);
+	// 	setWinnerNoOfDoubtsAsked(winner.noOfDoubtsAsked);
+	// 	setWinnerNoOfDoubtsAnswered(winner.noOfDoubtsAnswered);
+	// 	//   console.log(winner.fName);
+	// }
 
 
 
@@ -384,8 +384,8 @@ function App() {
 					/>
 					<Route
 						path={`/leaderboard`}
-						// element={<Leaderboard  userId={userId} userGoogleId={userGoogleId} />}
-						element={<Leaderboard userId={userId} userGoogleId={userGoogleId} winnerfNameSent={winnerfName} winnerlNameSent={winnerlName} winnerBranchSent={winnerBranch} winnerYearSent={winnerYear} winnerNoOfDoubtsAskedSent={winnerNoOfDoubtsAsked} winneroOfDoubtsAnsweredSent={winneroOfDoubtsAnswered} />}
+						element={<Leaderboard  userId={userId} userGoogleId={userGoogleId} />}
+						// element={<Leaderboard userId={userId} userGoogleId={userGoogleId} winnerfNameSent={winnerfName} winnerlNameSent={winnerlName} winnerBranchSent={winnerBranch} winnerYearSent={winnerYear} winnerNoOfDoubtsAskedSent={winnerNoOfDoubtsAsked} winneroOfDoubtsAnsweredSent={winneroOfDoubtsAnswered} />}
 					/>
 					{/* </Route> */}
 
