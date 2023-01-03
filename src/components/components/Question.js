@@ -264,11 +264,12 @@ function Question(props) {
       resultAnswer = await resultAnswer.json();                //result is the object which finally contains the question stored in the database
       // console.log(resultAnswer);
 
-      setIsAnsweringActive(!isAnsweringActive);
+      // setIsAnsweringActive(!isAnsweringActive);
       // alert("Answer submitted!");
       // showToastMessage();
       if(resultAnswer.user.fName && resultAnswer.question.content && resultAnswer.question.user.fName){
         // alert("Question submitted");
+        setIsAnsweringActive(!isAnsweringActive);
         showToastMessage();
     }
 
