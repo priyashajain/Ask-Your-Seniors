@@ -53,6 +53,7 @@ function QuestionForUpdDel(props) {
 
             content={props.answerSent.content}
             category="Answer"
+            edited={props.answerSent.edited}
           />
         
       

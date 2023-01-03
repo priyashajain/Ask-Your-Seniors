@@ -11,12 +11,18 @@ function AnswerForUpdDel(props) {
 
     const [updatedAnswer, setUpdatedAnswer] = useState("");
 
+    const [editedTimestampOfAnswer, setEditedTimestampOfAnswer] = useState("");
+
     const handleUpdatedAnswerClickAndSubmit = async () => {
+        const d = new Date();
+        const edited = "EDIT: " + d;
+        setEditedTimestampOfAnswer(edited);
+
         console.log(updatedAnswer);
         setUpdateButton(false);
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-answer/${props.answerId}`, {
             method: 'Put',
-            body: JSON.stringify({ content: updatedAnswer }),
+            body: JSON.stringify({ content: updatedAnswer, edited: editedTimestampOfAnswer }),
             headers: {
                 'Content-Type': "application/json"
             }
@@ -25,7 +31,7 @@ function AnswerForUpdDel(props) {
 
     }
 
-    const handleDeleteButton = async ()=>{
+    const handleDeleteButton = async () => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-answer/${props.answerId}`, {
             method: "Delete"
         });
@@ -66,13 +72,14 @@ function AnswerForUpdDel(props) {
                     <div className="question">
                         <p>{props.content}</p>
                     </div>
+                    <p>{props.edited}</p>                          {/* edited timestamp */}
                 </div>
 
                 <div className="right-part-answer-div">
                     <button className="update-delete-button" onClick={handleDeleteButton}>Delete</button>
                     <button className="update-delete-button" onClick={handleUpdateButton}>Edit</button>
                 </div>
-            
+
             </div>
             {/* <p>{props.answerId}</p> */}
         </div>
