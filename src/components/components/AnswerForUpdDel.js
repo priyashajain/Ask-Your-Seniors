@@ -15,14 +15,15 @@ function AnswerForUpdDel(props) {
 
     const handleUpdatedAnswerClickAndSubmit = async () => {
         const d = new Date();
-        const editedDateTime = "EDIT: " + d;
+        // const editedDateTime = "EDIT: " + d;
         // setEditedTimestampOfAnswer(edited);
 
         console.log(updatedAnswer);
+        // console.log(editedDateTime);
         setUpdateButton(false);
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-answer/${props.answerId}`, {
             method: 'Put',
-            body: JSON.stringify({ content: updatedAnswer, edited: editedDateTime }),
+            body: JSON.stringify({ content: updatedAnswer, edited: d }),
             headers: {
                 'Content-Type': "application/json"
             }
