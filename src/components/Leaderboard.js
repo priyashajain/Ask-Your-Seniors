@@ -80,7 +80,25 @@ const Leaderboard = (props) => {
             return index === 0;
         }));
 
-        setWinnerfName(winner.fName);
+        // setWinnerfName(winner.fName);
+
+        setWinnerfName(resultUsers.sort(
+            (p1, p2) => {
+                let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+
+                if (sum1 > sum2) {
+                    return -1;
+                }
+                if (sum1 < sum2) {
+                    return 1;
+                }
+
+                return 0;
+            }).find((obj, index) => {
+                return index === 0;
+            }).fName);
+
         setWinnerlName(winner.lName);
         setWinnerBranch(winner.branch);
         setWinnerYear(winner.year);
@@ -173,7 +191,7 @@ const Leaderboard = (props) => {
                                     <tr>
                                         <td className="student-index-column">
                                             <div className="student-index-div">
-                                                {itemOffset + index +1}
+                                                {itemOffset + index + 1}
                                             </div>
                                         </td>
                                         <td className="student-name-column">
