@@ -59,7 +59,7 @@ function CreateQuestion(props) {
             onClose: () => {
               console.log("closing");
             },
-            autoClose: 5000
+            autoClose: 2500
           });
     };
 

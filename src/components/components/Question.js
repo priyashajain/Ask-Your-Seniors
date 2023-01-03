@@ -19,7 +19,7 @@ function Question(props) {
       onClose: () => {
         console.log("closing");
       },
-      autoClose: 5000
+      autoClose: 2500
     });
   };
 
@@ -222,8 +222,8 @@ function Question(props) {
     // getQuestionById();
 
 
-    if (Number(userYear) <= Number(questionUserYear)) {
-
+    // if (Number(userYear) <= Number(questionUserYear)) {
+      if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {
 
       // const user = {                //ORIGINAL
       //   _id: userId,
