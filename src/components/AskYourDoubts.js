@@ -485,6 +485,11 @@ const AskYourDoubts = (props) => {
           {isAllQuestionsButtonActive ? <div className="main-container">{nquestions.map((nquestionItem, index) => {
             return (
               <Question
+                userEmailSent={createQuestionUserEmail} 
+                userfNameSent={createQuestionUserfName} 
+                userlNameSent={createQuestionUserlName} 
+                userBranchSent={createQuestionUserBranch} 
+                userYearSent={createQuestionUserYear}
                 key={index}
                 id={index}
                 userIdSent={props.userId}

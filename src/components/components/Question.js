@@ -223,15 +223,31 @@ function Question(props) {
 
 
     if (Number(userYear) <= Number(questionUserYear)) {
+
+
+      // const user = {                //ORIGINAL
+      //   _id: userId,
+      //   email: userEmail,
+      //   // password: userPassword,
+      //   fName: userfName,
+      //   lName: userlName,
+      //   branch: userBranch,
+      //   year: userYear
+      // }
+ 
+      
       const user = {
-        _id: userId,
-        email: userEmail,
+        _id: props.userIdSent,
+        email: props.userEmailSent,
         // password: userPassword,
-        fName: userfName,
-        lName: userlName,
-        branch: userBranch,
-        year: userYear
+        fName: props.userfNameSent,
+        lName: props.userlNameSent,
+        branch: props.userBranchSent,
+        year: props.userYearSent
       }
+
+
+
 
       console.log("User object I created", user);
 
