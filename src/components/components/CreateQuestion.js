@@ -73,7 +73,7 @@ function CreateQuestion(props) {
 
         const id = props.userIdSent;
         // let result = await fetch(`http://localhost:5000/user/${auth._id}`);
-        let result = await fetch(`http://localhost:5000/user/${id}`);
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${id}`);
         result = await result.json();
         console.log(result);
         // setUser(result);
@@ -138,7 +138,7 @@ function CreateQuestion(props) {
             console.log('object i created', JSON.stringify(user));
 
 
-            let result = await fetch("http://localhost:5000/createquestion", {
+            let result = await fetch("https://ask-your-seniors-backend.vercel.app/createquestion", {
                 method: "post",
                 body: JSON.stringify({ content, category, user, approved, notified }),
                 headers: {
@@ -158,7 +158,7 @@ function CreateQuestion(props) {
             // }
 
 
-            let resultNoOfDoubtsAsked = await fetch(`http://localhost:5000/user-increment-noOfDoubtsAsked/${props.userIdSent}`, {                 //this result gets the value of res.send()
+            let resultNoOfDoubtsAsked = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAsked/${props.userIdSent}`, {                 //this result gets the value of res.send()
                 method: 'Put',
                 headers: {
                     'Content-Type': 'application/json'

@@ -57,7 +57,7 @@ const Leaderboard = (props) => {
 
     const getUsers = async () => {
 
-        let resultUsers = await fetch("http://localhost:5000/users");
+        let resultUsers = await fetch("https://ask-your-seniors-backend.vercel.app/users");
         resultUsers = await resultUsers.json();
         setUsers(resultUsers);
 
@@ -94,7 +94,7 @@ const Leaderboard = (props) => {
         // const idFetched = JSON.parse(auth)._id;
 
         const idFetched = props.userId;
-        let result = await fetch(`http://localhost:5000/user/${idFetched}`);
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${idFetched}`);
         result = await result.json();
         setNavbarName(`${result.fName} ${result.lName}`);
         // setUser(result);

@@ -15,7 +15,7 @@ function NavbarForAdmin(props) {
     // }
 
     const logout = () => {
-		window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
+		window.open(`https://ask-your-seniors-backend.vercel.app/auth/logout`, "_self");
 	};
     
     return (

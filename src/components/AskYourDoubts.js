@@ -328,7 +328,7 @@ const AskYourDoubts = (props) => {
 
 
   const addQuestion = async () => {
-    let result = await fetch(`http://localhost:5000/questions`);
+    let result = await fetch(`https://ask-your-seniors-backend.vercel.app/questions`);
     result = await result.json();
     // console.log(result);
     setnQuestions(result.filter(adminQuestion => adminQuestion.approved === true));
@@ -339,7 +339,7 @@ const AskYourDoubts = (props) => {
     // const useridForMyQuestions = JSON.parse(authForMyQuestions)._id;
 
     const useridForMyQuestions = props.userId;
-    let resultMyQuestions = await fetch(`http://localhost:5000/questions-from-user-id/${useridForMyQuestions}`);
+    let resultMyQuestions = await fetch(`https://ask-your-seniors-backend.vercel.app/questions-from-user-id/${useridForMyQuestions}`);
     resultMyQuestions = await resultMyQuestions.json();
     // console.log(result);
 
@@ -357,7 +357,7 @@ const AskYourDoubts = (props) => {
     // const useridForMyAnswers = JSON.parse(authForMyAnswers)._id;
 
     const useridForMyAnswers = props.userId;
-    let resultMyAnswers = await fetch(`http://localhost:5000/answers-from-user-id/${useridForMyAnswers}`);
+    let resultMyAnswers = await fetch(`https://ask-your-seniors-backend.vercel.app/answers-from-user-id/${useridForMyAnswers}`);
     resultMyAnswers = await resultMyAnswers.json();
     // console.log(result);
 
@@ -373,7 +373,7 @@ const AskYourDoubts = (props) => {
 
     const idFetched = props.userId;
   
-    let result = await fetch(`http://localhost:5000/user/${idFetched}`);
+    let result = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${idFetched}`);
     result = await result.json();
     setNavbarName(`${result.fName} ${result.lName}`);
 

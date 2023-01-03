@@ -22,7 +22,7 @@ const Details = () => {
         //getUser??????
         // const user = localStorage.getItem("user"); ?????????
 
-        let result = await fetch(`http://localhost:5000/user/${params.id}`, {                 //this result gets the value of res.send()
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${params.id}`, {                 //this result gets the value of res.send()
             method: 'Put',
             body: JSON.stringify({ fName, lName, branch, year, noOfDoubtsAsked, noOfDoubtsAnswered, isAdmin }),
             headers: {

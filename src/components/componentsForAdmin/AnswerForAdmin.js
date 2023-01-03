@@ -28,7 +28,7 @@ function AnswerForAdmin(props) {
 
 
     const handleAdminAnswersDeleteButton = async ()=>{
-        let result = await fetch(`http://localhost:5000/delete-answer/${props.answerId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-answer/${props.answerId}`, {
             method: "Delete"
         });
 
@@ -36,7 +36,7 @@ function AnswerForAdmin(props) {
     }
 
     const handleAdminAnswersApproveButton = async ()=>{
-        let result = await fetch(`http://localhost:5000/update-answer-approved/${props.answerId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-answer-approved/${props.answerId}`, {
             method: 'Put',
             body: JSON.stringify({ approved: true }),
             headers: {

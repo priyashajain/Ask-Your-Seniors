@@ -16,14 +16,14 @@ const Admin = () => {
     });
 
     const getAdminQuestions = async () => {
-        let resultAdminQuestions = await fetch(`http://localhost:5000/questions`);
+        let resultAdminQuestions = await fetch(`https://ask-your-seniors-backend.vercel.app/questions`);
         resultAdminQuestions = await resultAdminQuestions.json();
         // console.log(result);
         setAdminQuestions(resultAdminQuestions.filter(adminQuestion => adminQuestion.approved === false));
     }
 
     const getAdminAnswers = async () => {
-        let resultAdminAnswers = await fetch(`http://localhost:5000/all-answers`);
+        let resultAdminAnswers = await fetch(`https://ask-your-seniors-backend.vercel.app/all-answers`);
         resultAdminAnswers = await resultAdminAnswers.json();
         // console.log(result);
         setAdminAnswers(resultAdminAnswers.filter(adminAnswer => adminAnswer.approved === false));

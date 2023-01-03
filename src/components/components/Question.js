@@ -91,7 +91,7 @@ function Question(props) {
 
     const id = props.questionId;
     console.log(id);
-    let result = await fetch(`http://localhost:5000/answers/${id}`);
+    let result = await fetch(`https://ask-your-seniors-backend.vercel.app/answers/${id}`);
     result = await result.json();
     // console.log(result);
     // setUser(result);
@@ -111,7 +111,7 @@ function Question(props) {
   const getQuestionById = async () => {
     const quesid = props.questionId;
     // let result = await fetch(`http://localhost:5000/user/${auth._id}`);
-    let resQuestion = await fetch(`http://localhost:5000/question/${quesid}`);
+    let resQuestion = await fetch(`https://ask-your-seniors-backend.vercel.app/question/${quesid}`);
     resQuestion = await resQuestion.json();
     // console.log(resUser);
 
@@ -136,7 +136,7 @@ function Question(props) {
 
     const id = props.userIdSent;
     // let result = await fetch(`http://localhost:5000/user/${auth._id}`);
-    let resUser = await fetch(`http://localhost:5000/user/${id}`);
+    let resUser = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${id}`);
     resUser = await resUser.json();
     // console.log(resUser);
 
@@ -253,7 +253,7 @@ function Question(props) {
       console.log("Question object I created", question);
 
 
-      let resultAnswer = await fetch("http://localhost:5000/createanswer", {
+      let resultAnswer = await fetch("https://ask-your-seniors-backend.vercel.app/createanswer", {
         method: "post",
         body: JSON.stringify({ content: acontent, user, question, approved, notified }),
         headers: {
@@ -270,7 +270,7 @@ function Question(props) {
 
 
 
-      let resultNoOfDoubtsAnswered = await fetch(`http://localhost:5000/user-increment-noOfDoubtsAnswered/${userId}`, {                 //this result gets the value of res.send()
+      let resultNoOfDoubtsAnswered = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAnswered/${userId}`, {                 //this result gets the value of res.send()
         method: 'Put',
         headers: {
           'Content-Type': 'application/json'

@@ -4,7 +4,7 @@ function SignUpForTesting() {
     const googleAuth = () => {
         window.open(
             // `${process.env.REACT_APP_API_URL}/auth/google/callback`,
-            `${process.env.REACT_APP_API_URL}/auth/google`,
+            `https://ask-your-seniors-backend.vercel.app/auth/google`,
             "_self"
         );
     };

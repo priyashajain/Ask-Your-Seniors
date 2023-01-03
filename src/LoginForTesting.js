@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function LoginForTesting() {
     const googleAuth = () => {
         window.open(
-            `${process.env.REACT_APP_API_URL}/auth/google/callback`,
+            `https://ask-your-seniors-backend.vercel.app/auth/google/callback`,
             "_self"
         );
     };

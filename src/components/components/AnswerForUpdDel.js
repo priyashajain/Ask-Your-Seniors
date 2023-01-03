@@ -14,7 +14,7 @@ function AnswerForUpdDel(props) {
     const handleUpdatedAnswerClickAndSubmit = async () => {
         console.log(updatedAnswer);
         setUpdateButton(false);
-        let result = await fetch(`http://localhost:5000/update-answer/${props.answerId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-answer/${props.answerId}`, {
             method: 'Put',
             body: JSON.stringify({ content: updatedAnswer }),
             headers: {
@@ -26,7 +26,7 @@ function AnswerForUpdDel(props) {
     }
 
     const handleDeleteButton = async ()=>{
-        let result = await fetch(`http://localhost:5000/delete-answer/${props.answerId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-answer/${props.answerId}`, {
             method: "Delete"
         });
 

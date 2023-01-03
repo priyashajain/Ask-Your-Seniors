@@ -11,7 +11,7 @@ function QuestionForAdmin(props) {
     // }, [])
 
     const handleAdminQuestionsDeleteButton = async ()=>{
-        let result = await fetch(`http://localhost:5000/delete-question/${props.questionId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-question/${props.questionId}`, {
             method: "Delete"
         });
 
@@ -19,7 +19,7 @@ function QuestionForAdmin(props) {
     }
 
     const handleAdminQuestionsApproveButton = async ()=>{
-        let result = await fetch(`http://localhost:5000/update-question-approved/${props.questionId}`, {
+        let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-question-approved/${props.questionId}`, {
             method: 'Put',
             body: JSON.stringify({ approved: true }),
             headers: {
