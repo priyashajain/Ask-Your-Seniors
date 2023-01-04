@@ -13,6 +13,16 @@ function NavbarForHome(props) {
     localStorage.clear();
     navigate("/signup");       //video13 to clear bug, as useNavigate re-renders
   }
+
+
+  const googleAuth = () => {
+    window.open(
+      `https://ask-your-seniors-backend.vercel.app/auth/google/callback`,
+      "_self"
+    );
+  };
+
+
   return (
     <div className="nav-container-for-home">
       <div className="cb-logo-container">
@@ -58,8 +68,13 @@ function NavbarForHome(props) {
 
         </div>
         <img src="../ASSETS/10.svg" alt="" /> */}
-        <Link to="/signup" className="signin-signup-button">Sign Up</Link>
-        <Link to="/signin" className="signin-signup-button">Sign In</Link>
+
+        {/* <Link to="/signup" className="signin-signup-button">Sign Up</Link>
+        <Link to="/signin" className="signin-signup-button">Sign In</Link> */}
+
+        <button className="signin-signup-button" onClick={googleAuth}>Sign Up</button>
+        <button className="signin-signup-button" onClick={googleAuth}>Sign In</button>
+
         {/* <button className="signin-signup-button">Sign In</button> */}
       </div>
 
