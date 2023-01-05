@@ -47,7 +47,8 @@ function QuestionForAdmin(props) {
 
                 <div className="info-container">
                     <div className="student-info-container">
-                        <img src="../ASSETS/10.svg" alt="" />
+                        {/* <img src="../ASSETS/10.svg" alt="" />      change img to avatar by props.avatar */}
+                        <img src={props.avatar} alt="" style={{"borderRadius":"50%", "height":"100%"}}/>
                         <div className="student-info">
                             <p className="name">{props.fName} {props.lName}</p>
                             <p className="branch-year">{props.branch}, {props.year}</p>

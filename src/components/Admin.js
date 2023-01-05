@@ -69,6 +69,7 @@ const Admin = () => {
                         lName={adminQuestionItem.user.lName}
                         branch={adminQuestionItem.user.branch}
                         year={adminQuestionItem.user.year}
+                        avatar={adminQuestionItem.user.avatar}
                         content={adminQuestionItem.content}
                         category={adminQuestionItem.category}
                         userIdSentFromAdmin={adminQuestionItem.user._id}
@@ -115,6 +116,7 @@ const Admin = () => {
                         lName={adminAnswerItem.question.user.lName}
                         branch={adminAnswerItem.question.user.branch}
                         year={adminAnswerItem.question.user.year}
+                        avatar={adminAnswerItem.question.user.avatar}
                         content={adminAnswerItem.question.content}
                         category={adminAnswerItem.question.category}
                     />

@@ -492,7 +492,7 @@ const AskYourDoubts = (props) => {
 
         {/* <CreateQuestion onAdd={addQuestion} /> */}
         {/* <CreateQuestion userIdSent={props.userId} userEmailSent={props.userEmailSent} userfNameSent={props.userfNameSent} userlNameSent={props.userlNameSent} userBranchSent={props.userBranchSent} userYearSent={props.userYearSent}/> */}
-        <CreateQuestion userIdSent={props.userId} userEmailSent={createQuestionUserEmail} userfNameSent={createQuestionUserfName} userlNameSent={createQuestionUserlName} userBranchSent={createQuestionUserBranch} userYearSent={createQuestionUserYear} />
+        <CreateQuestion userIdSent={props.userId} userEmailSent={createQuestionUserEmail} userfNameSent={createQuestionUserfName} userlNameSent={createQuestionUserlName} userBranchSent={createQuestionUserBranch} userYearSent={createQuestionUserYear}  userAvatarSent={createQuestionUserAvatar} />
 
 
 
@@ -537,6 +537,7 @@ const AskYourDoubts = (props) => {
                 userlNameSent={createQuestionUserlName}
                 userBranchSent={createQuestionUserBranch}
                 userYearSent={createQuestionUserYear}
+                userAvatarSent={createQuestionUserAvatar}
                 key={index}
                 id={index}
                 userIdSent={props.userId}
@@ -545,6 +546,7 @@ const AskYourDoubts = (props) => {
                 lName={nquestionItem.user.lName}
                 branch={nquestionItem.user.branch}
                 year={nquestionItem.user.year}
+                avatar={nquestionItem.user.avatar}
                 content={nquestionItem.content}
                 category={nquestionItem.category}
                 questionSent={nquestionItem}
@@ -560,6 +562,7 @@ const AskYourDoubts = (props) => {
                 userlNameSent={createQuestionUserlName}
                 userBranchSent={createQuestionUserBranch}
                 userYearSent={createQuestionUserYear}
+                userAvatarSent={createQuestionUserAvatar}
                 key={index}
                 id={index}
                 userIdSent={props.userId}
@@ -568,6 +571,7 @@ const AskYourDoubts = (props) => {
                 lName={nquestionItem.user.lName}
                 branch={nquestionItem.user.branch}
                 year={nquestionItem.user.year}
+                avatar={nquestionItem.user.avatar}
                 content={nquestionItem.content}
                 category={nquestionItem.category}
                 questionSent={nquestionItem}
@@ -590,6 +594,7 @@ const AskYourDoubts = (props) => {
                 lName={nquestionItem.user.lName}
                 branch={nquestionItem.user.branch}
                 year={nquestionItem.user.year}
+                avatar={nquestionItem.user.avatar}
                 // category={questionItem.category}
                 // content={questionItem.content}
                 content={nquestionItem.content}
@@ -608,6 +613,7 @@ const AskYourDoubts = (props) => {
                 lName={nquestionItem.user.lName}
                 branch={nquestionItem.user.branch}
                 year={nquestionItem.user.year}
+                avatar={nquestionItem.user.avatar}
                 // category={questionItem.category}
                 // content={questionItem.content}
                 content={nquestionItem.content}
@@ -660,6 +666,7 @@ const AskYourDoubts = (props) => {
                 lName={myAnswerItem.question.user.lName}
                 branch={myAnswerItem.question.user.branch}
                 year={myAnswerItem.question.user.year}
+                avatar={myAnswerItem.question.user.avatar}
                 // category={questionItem.category}
                 // content={questionItem.content}
                 content={myAnswerItem.question.content}

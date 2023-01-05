@@ -243,7 +243,8 @@ function Question(props) {
         fName: props.userfNameSent,
         lName: props.userlNameSent,
         branch: props.userBranchSent,
-        year: props.userYearSent
+        year: props.userYearSent,
+        avatar: props.userAvatarSent
       }
 
 
@@ -282,7 +283,8 @@ function Question(props) {
           fName: props.questionSent.user.fName,
           lName: props.questionSent.user.lName,
           branch: props.questionSent.user.branch,
-          year: props.questionSent.user.year
+          year: props.questionSent.user.year,
+          avatar: props.questionSent.user.avatar
         }
       }
 
@@ -356,7 +358,8 @@ function Question(props) {
 
         <div className="info-container">
           <div className="student-info-container">
-            <img src="../ASSETS/10.svg" alt="" />
+            {/* <img src="../ASSETS/10.svg" alt="" />       change img to avatar here using props.avatar */}
+            <img src={props.avatar} alt="" style={{"borderRadius":"50%", "height":"100%"}}/>
             <div className="student-info">
               <p className="name">{props.fName} {props.lName}</p>
               <p className="branch-year">{props.branch}, {props.year}</p>
@@ -476,6 +479,7 @@ function Question(props) {
             lName={answerItem.user.lName}
             branch={answerItem.user.branch}
             year={answerItem.user.year}
+            avatar={answerItem.user.avatar}
             // category={questionItem.category}
             // content={questionItem.content}
             content={answerItem.content}

@@ -7,6 +7,8 @@ const Leaderboard = (props) => {
     let [users, setUsers] = useState([]);
     // let [sortedUsers, setSortedUsers] = useState([]);
     const [navbarName, setNavbarName] = useState("");
+    const [navbarAvatar, setNavbarAvatar] = useState("");
+
     const [winner, setWinner] = useState({
         branch: "",
         email: "",
@@ -25,6 +27,7 @@ const Leaderboard = (props) => {
     const [winnerYear, setWinnerYear] = useState("");
     const [winnerNoOfDoubtsAsked, setWinnerNoOfDoubtsAsked] = useState("");
     const [winneroOfDoubtsAnswered, setWinnerNoOfDoubtsAnswered] = useState("");
+    const [winnerAvatar, setWinnerAvatar] = useState("");
 
 
     const [currentItems, setCurrentItems] = useState([]);
@@ -186,6 +189,26 @@ const Leaderboard = (props) => {
 
 
 
+        
+            setWinnerAvatar(resultUsers.sort(
+                (p1, p2) => {
+                    let sum1 = p1.noOfDoubtsAsked + p1.noOfDoubtsAnswered;
+                    let sum2 = p2.noOfDoubtsAsked + p2.noOfDoubtsAnswered;
+    
+                    if (sum1 > sum2) {
+                        return -1;
+                    }
+                    if (sum1 < sum2) {
+                        return 1;
+                    }
+    
+                    return 0;
+                }).find((obj, index) => {
+                    return index === 0;
+                }).avatar);
+
+
+
         // setWinnerlName(winner.lName);
         // setWinnerBranch(winner.branch);
         // setWinnerYear(winner.year);
@@ -204,6 +227,7 @@ const Leaderboard = (props) => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/user/${idFetched}`);
         result = await result.json();
         setNavbarName(`${result.fName} ${result.lName}`);
+        setNavbarAvatar(result.avatar);
         // setUser(result);
     }
 
@@ -246,7 +270,7 @@ const Leaderboard = (props) => {
             })} */}
 
             <div style={{ "padding": "2% 7% 1% 7%", }}>
-                <Navbar navbarName={navbarName} />
+                <Navbar navbarName={navbarName} createQuestionUserAvatar={navbarAvatar}/>
             </div>
 
             <h1 className="leaderboard-main-heading">Leaderboard</h1>
@@ -254,7 +278,8 @@ const Leaderboard = (props) => {
             <div className="leaderboard-main-container">
                 <div className="leaderboard-left-area">
                     <div className="left-area-inner">
-                        <img src="../ASSETS/leaderboard_left_pic.svg" alt="" className="winner-img" />
+                        {/* <img src="../ASSETS/leaderboard_left_pic.svg" alt="" className="winner-img" />  change img to avatar by using winnerAvatar */}
+                        <img src={winnerAvatar} alt="" className="winner-img" />
 
                         <div className="winner-name">#1 {winnerfName} {winnerlName}</div>
                         <div className="winner-branch-year">{winnerBranch}, {winnerYear}</div>

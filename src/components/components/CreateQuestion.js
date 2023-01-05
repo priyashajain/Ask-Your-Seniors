@@ -132,7 +132,8 @@ function CreateQuestion(props) {
                 fName: props.userfNameSent,
                 lName: props.userlNameSent,
                 branch: props.userBranchSent,
-                year: props.userYearSent
+                year: props.userYearSent,
+                avatar: props.userAvatarSent
             }
 
             console.log('object i created', JSON.stringify(user));
@@ -159,7 +160,7 @@ function CreateQuestion(props) {
 
 
 
-            
+
             // let resultNoOfDoubtsAsked = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAsked/${props.userIdSent}`, {                 //this result gets the value of res.send()
             //     method: 'Put',
             //     headers: {
