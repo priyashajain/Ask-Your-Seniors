@@ -46,7 +46,7 @@ function AnswerForAdmin(props) {
         result = await result.json();
 
 
-        let resultNoOfDoubtsAnswered = await fetch(`http://localhost:5000/user-increment-noOfDoubtsAnswered/${props.userIdSentFromAdmin}`, {                 //this result gets the value of res.send()
+        let resultNoOfDoubtsAnswered = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAnswered/${props.userIdSentFromAdmin}`, {                 //this result gets the value of res.send()
             method: 'Put',
             headers: {
                 'Content-Type': 'application/json'
