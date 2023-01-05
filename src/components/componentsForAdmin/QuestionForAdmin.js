@@ -10,7 +10,7 @@ function QuestionForAdmin(props) {
     //   console.log(question, user);
     // }, [])
 
-    const handleAdminQuestionsDeleteButton = async ()=>{
+    const handleAdminQuestionsDeleteButton = async () => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-question/${props.questionId}`, {
             method: "Delete"
         });
@@ -18,7 +18,7 @@ function QuestionForAdmin(props) {
         result = await result.json();
     }
 
-    const handleAdminQuestionsApproveButton = async ()=>{
+    const handleAdminQuestionsApproveButton = async () => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-question-approved/${props.questionId}`, {
             method: 'Put',
             body: JSON.stringify({ approved: true }),
@@ -27,6 +27,16 @@ function QuestionForAdmin(props) {
             }
         });
         result = await result.json();
+
+
+        let resultNoOfDoubtsAsked = await fetch(`http://localhost:5000/user-increment-noOfDoubtsAsked/${props.userIdSentFromAdmin}`, {                 //this result gets the value of res.send()
+            method: 'Put',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        resultNoOfDoubtsAsked = await resultNoOfDoubtsAsked.json();
     }
 
 
@@ -51,7 +61,7 @@ function QuestionForAdmin(props) {
                     </div>
                 </div>
 
-                <div style={{"display":"flex", "flexDirection":"row", "marginTop":"35px"}}>
+                <div style={{ "display": "flex", "flexDirection": "row", "marginTop": "35px" }}>
                     <div className="left-part-answer-div">
                         <div className="question">
                             <p>{props.content}</p>

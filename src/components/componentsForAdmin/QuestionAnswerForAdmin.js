@@ -45,6 +45,7 @@ function QuestionAnswerForAdmin(props) {
 
         content={props.answerSent.content}
         category="Answer"
+        userIdSentFromAdmin={props.answerSent.user._id}
       />
 
       {/* <AnswerForAdmin

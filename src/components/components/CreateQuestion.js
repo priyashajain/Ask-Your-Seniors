@@ -158,14 +158,21 @@ function CreateQuestion(props) {
             // }
 
 
-            let resultNoOfDoubtsAsked = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAsked/${props.userIdSent}`, {                 //this result gets the value of res.send()
-                method: 'Put',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
 
-            resultNoOfDoubtsAsked = await resultNoOfDoubtsAsked.json();
+            
+            // let resultNoOfDoubtsAsked = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAsked/${props.userIdSent}`, {                 //this result gets the value of res.send()
+            //     method: 'Put',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // });
+
+            // resultNoOfDoubtsAsked = await resultNoOfDoubtsAsked.json();
+
+
+
+
+
 
             // props.onAdd(question);                  //(here)keep it, and in Ask Your Doubts, in the function addQuestion, do getQuestions and/or setQuestions again
 

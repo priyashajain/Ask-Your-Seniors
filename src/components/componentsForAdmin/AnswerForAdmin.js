@@ -27,7 +27,7 @@ function AnswerForAdmin(props) {
 
 
 
-    const handleAdminAnswersDeleteButton = async ()=>{
+    const handleAdminAnswersDeleteButton = async () => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/delete-answer/${props.answerId}`, {
             method: "Delete"
         });
@@ -35,7 +35,7 @@ function AnswerForAdmin(props) {
         result = await result.json();
     }
 
-    const handleAdminAnswersApproveButton = async ()=>{
+    const handleAdminAnswersApproveButton = async () => {
         let result = await fetch(`https://ask-your-seniors-backend.vercel.app/update-answer-approved/${props.answerId}`, {
             method: 'Put',
             body: JSON.stringify({ approved: true }),
@@ -44,6 +44,16 @@ function AnswerForAdmin(props) {
             }
         });
         result = await result.json();
+
+
+        let resultNoOfDoubtsAnswered = await fetch(`http://localhost:5000/user-increment-noOfDoubtsAnswered/${props.userIdSentFromAdmin}`, {                 //this result gets the value of res.send()
+            method: 'Put',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        resultNoOfDoubtsAnswered = await resultNoOfDoubtsAnswered.json();
     }
 
 
@@ -73,9 +83,9 @@ function AnswerForAdmin(props) {
                     <button className="update-delete-button" onClick={handleAdminAnswersApproveButton}>Approve</button>
                     <button className="update-delete-button" onClick={handleAdminAnswersDeleteButton}>Delete</button>
                 </div>
-            
+
             </div>
-         
+
         </div>
     );
 }

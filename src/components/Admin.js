@@ -71,6 +71,7 @@ const Admin = () => {
                         year={adminQuestionItem.user.year}
                         content={adminQuestionItem.content}
                         category={adminQuestionItem.category}
+                        userIdSentFromAdmin={adminQuestionItem.user._id}
                     />
                 );
             })}</div> : null}

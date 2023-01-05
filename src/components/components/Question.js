@@ -314,14 +314,14 @@ function Question(props) {
 
 
 
-      let resultNoOfDoubtsAnswered = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAnswered/${userId}`, {                 //this result gets the value of res.send()
-        method: 'Put',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      // let resultNoOfDoubtsAnswered = await fetch(`https://ask-your-seniors-backend.vercel.app/user-increment-noOfDoubtsAnswered/${userId}`, {                 //this result gets the value of res.send()
+      //   method: 'Put',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   }
+      // });
 
-      resultNoOfDoubtsAnswered = await resultNoOfDoubtsAnswered.json();
+      // resultNoOfDoubtsAnswered = await resultNoOfDoubtsAnswered.json();
 
 
 
