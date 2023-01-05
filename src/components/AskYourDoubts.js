@@ -294,6 +294,7 @@ const AskYourDoubts = (props) => {
   const [createQuestionUserBranch, setCreateQuestionUserBranch] = useState("");
   const [createQuestionUserYear, setCreateQuestionUserYear] = useState("");
   const [createQuestionUserEmail, setCreateQuestionUserEmail] = useState("");
+  const [createQuestionUserAvatar, setCreateQuestionUserAvatar] = useState("");
 
 
 
@@ -388,6 +389,7 @@ const AskYourDoubts = (props) => {
     setCreateQuestionUserBranch(result.branch);
     setCreateQuestionUserYear(result.year);
     setCreateQuestionUserEmail(result.email);
+    setCreateQuestionUserAvatar(result.avatar);
     // setUser(result);
   }
 
@@ -446,7 +448,7 @@ const AskYourDoubts = (props) => {
 
       <div className="right-area">
 
-        <Navbar navbarName={navbarName} />
+        <Navbar navbarName={navbarName} createQuestionUserAvatar={createQuestionUserAvatar} />
 
         {/* <Search /> */}
 
