@@ -62,7 +62,8 @@ function Navbar(props) {
 
 
         </div>
-        <img src="../ASSETS/10.svg" alt="" />
+        {/* <img src="../ASSETS/10.svg" alt="" /> */}
+        <img src="https://lh3.googleusercontent.com/a/AEdFTp4akZVS6bnFgDvhpXtUKFREn1VxL0K0WMYOJoZB=s96-c" alt="" />
       </div>
 
 
