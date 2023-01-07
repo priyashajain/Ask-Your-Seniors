@@ -223,6 +223,7 @@ import Details from "./components/Details";
 import AskYourDoubts from "./components/AskYourDoubts";
 import Leaderboard from "./components/Leaderboard";
 import Admin from './components/Admin';
+import HomeCorrectForLoggedIn from "./components/HomeCorrectForLoggedIn";
 
 import HomeForTesting from "./HomeForTesting";
 import LoginForTesting from "./LoginForTesting";
@@ -247,6 +248,9 @@ function App() {
 	const [userlName, setUserlName] = useState("");
 	const [userBranch, setUserBranch] = useState("");
 	const [userYear, setUserYear] = useState("");
+
+	const [userAvatar, setUserAvatar] = useState("");
+	const [navbarName, setNavbarName] = useState("");
 
 
 	// let [users, setUsers] = useState([]);
@@ -278,6 +282,9 @@ function App() {
 			setUserlName(data.user.lName);
 			setUserBranch(data.user.branch);
 			setUserYear(data.user.year);
+
+			setUserAvatar(data.user.avatar);
+			setNavbarName(`${data.user.fName} ${data.user.lName}`);
 			// setUserName("Priyasha Jain");
 
 			// setUser(data.user);
@@ -354,7 +361,8 @@ function App() {
 					<Route
 						exact
 						path="/"
-						element={<HomeCorrect />}
+						// element={<HomeCorrect />}
+						element={userId!=="" ?  <HomeCorrectForLoggedIn navbarName={navbarName} userAvatarSent={userAvatar}/> : <HomeCorrect /> }
 					/>
 					<Route
 						exact

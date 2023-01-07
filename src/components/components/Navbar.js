@@ -33,7 +33,7 @@ function Navbar(props) {
 
           <li><Link to="/ask-your-doubts" className="navbar-link-style">Ask Your Doubts</Link></li>
           <li><Link to="/leaderboard" className="navbar-link-style">Leaderboard</Link></li>
-          <li><Link to="/" className="navbar-link-style">About</Link></li>
+          <li><Link to="/" className="navbar-link-style">Home</Link></li>
           {/* <li><Link to="/" className="navbar-link-style">Quiz</Link></li> */}
         </ul>
       </div>
