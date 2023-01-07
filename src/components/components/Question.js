@@ -23,6 +23,15 @@ function Question(props) {
     });
   };
 
+  const showToastMessageForSrJr = () => {
+    toast.warning("You cannnot answer this question!", {
+      onClose: () => {
+        console.log("closing");
+      },
+      autoClose: 2500
+    });
+  };
+
 
 
   function handleViewAnswersButtonClick(event) {
@@ -166,11 +175,28 @@ function Question(props) {
     //   alert("You cannot answer this question!");
     // }
 
-    setIsAnsweringActive(!isAnsweringActive);
-    // alert("Answer button clicked");
-    getUserById();                           //working here as this function not async
-    getQuestionById();
-    event.preventDefault();
+
+
+    if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {
+      setIsAnsweringActive(!isAnsweringActive);
+      // alert("Answer button clicked");
+
+      getUserById();                           //working here as this function not async
+      getQuestionById();
+
+      event.preventDefault();
+    }
+    else {
+      showToastMessageForSrJr();
+    }
+
+
+    // setIsAnsweringActive(!isAnsweringActive);
+    // // alert("Answer button clicked");
+    // getUserById();                           //working here as this function not async
+    // getQuestionById();
+    // event.preventDefault();
+
 
 
 
@@ -223,7 +249,8 @@ function Question(props) {
 
 
     // if (Number(userYear) <= Number(questionUserYear)) {
-      if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {
+
+    // if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {   //ORIGINAL
 
       // const user = {                //ORIGINAL
       //   _id: userId,
@@ -234,8 +261,8 @@ function Question(props) {
       //   branch: userBranch,
       //   year: userYear
       // }
- 
-      
+
+
       const user = {
         _id: props.userIdSent,
         email: props.userEmailSent,
@@ -308,11 +335,11 @@ function Question(props) {
       // setIsAnsweringActive(!isAnsweringActive);
       // alert("Answer submitted!");
       // showToastMessage();
-      if(resultAnswer.user.fName && resultAnswer.question.content && resultAnswer.question.user.fName){
+      if (resultAnswer.user.fName && resultAnswer.question.content && resultAnswer.question.user.fName) {
         // alert("Question submitted");
         setIsAnsweringActive(!isAnsweringActive);
         showToastMessage();
-    }
+      }
 
 
 
@@ -329,12 +356,12 @@ function Question(props) {
 
       event.preventDefault();
 
-    }
+    // }       //ORIGINAL
 
-    else {
-      alert("You cannot answer this question!");
-      setIsAnsweringActive(!isAnsweringActive);
-    }
+    // else {                                                           //ORIGINAL
+    //   alert("You cannot answer this question!");
+    //   setIsAnsweringActive(!isAnsweringActive);
+    // }
 
 
 
@@ -359,7 +386,7 @@ function Question(props) {
         <div className="info-container">
           <div className="student-info-container">
             {/* <img src="../ASSETS/10.svg" alt="" />       change img to avatar here using props.avatar */}
-            <img src={props.avatar} alt="" style={{"borderRadius":"50%", "height":"100%"}}/>
+            <img src={props.avatar} alt="" style={{ "borderRadius": "50%", "height": "100%" }} />
             <div className="student-info">
               <p className="name">{props.fName} {props.lName}</p>
               <p className="branch-year">{props.branch}, {props.year}</p>
