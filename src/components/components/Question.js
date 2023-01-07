@@ -177,25 +177,25 @@ function Question(props) {
 
 
 
-    if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {
-      setIsAnsweringActive(!isAnsweringActive);
-      // alert("Answer button clicked");
+    // if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {
+    //   setIsAnsweringActive(!isAnsweringActive);
+    //   // alert("Answer button clicked");
 
-      getUserById();                           //working here as this function not async
-      getQuestionById();
+    //   getUserById();                           //working here as this function not async
+    //   getQuestionById();
 
-      event.preventDefault();
-    }
-    else {
-      showToastMessageForSrJr();
-    }
+    //   event.preventDefault();
+    // }
+    // else {
+    //   showToastMessageForSrJr();
+    // }
 
 
-    // setIsAnsweringActive(!isAnsweringActive);
-    // // alert("Answer button clicked");
-    // getUserById();                           //working here as this function not async
-    // getQuestionById();
-    // event.preventDefault();
+    setIsAnsweringActive(!isAnsweringActive);
+    // alert("Answer button clicked");
+    getUserById();                           //working here as this function not async
+    getQuestionById();
+    event.preventDefault();
 
 
 
@@ -250,7 +250,7 @@ function Question(props) {
 
     // if (Number(userYear) <= Number(questionUserYear)) {
 
-    // if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {   //ORIGINAL
+    if (Number(props.userYearSent) <= Number(props.questionSent.user.year)) {   //ORIGINAL
 
       // const user = {                //ORIGINAL
       //   _id: userId,
@@ -356,12 +356,13 @@ function Question(props) {
 
       event.preventDefault();
 
-    // }       //ORIGINAL
+    }       //ORIGINAL
 
-    // else {                                                           //ORIGINAL
-    //   alert("You cannot answer this question!");
-    //   setIsAnsweringActive(!isAnsweringActive);
-    // }
+    else {                                                           //ORIGINAL
+      // alert("You cannot answer this question!");
+      showToastMessageForSrJr();
+      setIsAnsweringActive(!isAnsweringActive);
+    }
 
 
 
